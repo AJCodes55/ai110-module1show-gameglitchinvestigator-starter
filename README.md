@@ -25,9 +25,19 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+
+- The games purpose was to guess the secret key in 7 attempts. if the guess if lower than the secret key, the UI should prompt 'Go HIGHER' else' go LOWER'. if the guess is correct in 7 attempts, we have won the game
+- I found 3 bugs in the game
+ 1) THe 'New game' button was not workig properly. Ideally it should reset the total attempts, secret, and score, but it does ot reset the score.
+
+  2) 'Enter your guess' accepts zero and negative numbers as well. Also it accepts numbers which are not in the range of 1-100. Ideally it should only accept numbers from 1-100
+
+  3) The logic for guessing the correct secret is incorrect. When the guess is less than the secret - it tells us to go lower. and when the guess in more than the secret - it tells us to go higher. 
+
+- For bug 1, the new_game function did not incorporate session_state for score, which was fixed once I added that
+- for Bug 2, the range limitation was implemented which now only accepts number from 1-100
+- for bug 3 , check_guess function was changed and refactored to logic_utils
+
 
 ## 📸 Demo
 
